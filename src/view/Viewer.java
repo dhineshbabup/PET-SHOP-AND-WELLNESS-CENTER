@@ -4,8 +4,7 @@ import java.util.Scanner;
 import controller.Resource;
 public class Viewer {
     static Scanner sc = new Scanner(System.in);
-    public static void start(int user_id, String type) throws SQLException {
-        Resource.init();
+    public void start(int user_id, String type) throws SQLException {
         if(type.equals("user")) {
             Resource.userView.userView(user_id);
             return;
@@ -14,5 +13,9 @@ public class Viewer {
             Resource.adminView.adminView();
             return;
         }
+    }
+    public String getUserInput(String prompt) {
+        System.out.print(prompt);
+        return sc.nextLine();
     }
 }

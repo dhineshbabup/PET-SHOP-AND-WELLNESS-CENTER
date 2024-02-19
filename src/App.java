@@ -1,5 +1,4 @@
 import model.Connect;
-import view.Viewer;
 import java.util.ArrayList;
 import java.util.Scanner;
 import controller.Resource;
@@ -16,7 +15,7 @@ public class App {
             if(choice == 1) {
                 user = Resource.userControl.login();
                 if(user.isEmpty()) continue;
-                Viewer.start((int)user.get(1), (String) user.get(2));
+                Resource.view.start((int)user.get(1), (String) user.get(2));
                 break;
             }
             else if(choice == 2) {

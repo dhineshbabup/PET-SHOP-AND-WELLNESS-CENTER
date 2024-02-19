@@ -6,6 +6,15 @@ public class User {
     private String password;
     private String mobile_no;
     private int user_id;
+    private String address;
+    private String role;
+    public User(String name, String email, String password, String mobile_no, String address) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.mobile_no = mobile_no;
+        this.address = address;
+    }
 
     public int getUser_id() {
         return user_id;
@@ -62,19 +71,5 @@ public class User {
         this.role = role;
     }
 
-    private String address;
-    private String role;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", mobile_no=" + mobile_no +
-                ", user_id=" + user_id +
-                ", address='" + address + '\'' +
-                ", role='" + role + '\'' +
-                '}';
-    }
+    
 }

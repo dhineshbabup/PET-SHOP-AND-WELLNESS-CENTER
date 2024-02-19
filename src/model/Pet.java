@@ -11,19 +11,17 @@ public class Pet {
     public void setPet_name(String pet_name) {
         this.pet_name = pet_name;
     }
-
-    @Override
-    public String toString() {
-        return "Pet{" +
-                "pet_name='" + pet_name + '\'' +
-                ", breed='" + breed + '\'' +
-                ", colour='" + colour + '\'' +
-                ", gender='" + gender + '\'' +
-                ", category='" + category + '\'' +
-                ", weight=" + weight +
-                ", price=" + price +
-                '}';
+    public Pet(String pet_name, String breed, String colour, String gender, String category, float weight, float price) {
+        this.pet_name = pet_name;
+        this.breed = breed;
+        this.colour = colour;
+        this.gender = gender;
+        this.category = category;
+        this.weight = weight;
+        this.price = price;
     }
+
+    
 
     public void setBreed(String breed) {
         this.breed = breed;

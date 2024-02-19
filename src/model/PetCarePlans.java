@@ -6,8 +6,14 @@ public class PetCarePlans {
     private String plan_description;
     private float price;
     private String duration;
+    public PetCarePlans(String plan_type, String pet_type, String plan_description, float price, String duration) {
+        this.plan_type = plan_type;
+        this.pet_type = pet_type;
+        this.plan_description = plan_description;
+        this.price = price;
+        this.duration = duration;
+    }
 
-   
     public String getPlan_type() {
         return plan_type;
     }
@@ -48,14 +54,4 @@ public class PetCarePlans {
         this.duration = duration;
     }
 
-    @Override
-    public String toString() {
-        return "PetCarePlans{" +
-                ", plan_type='" + plan_type + '\'' +
-                ", pet_type='" + pet_type + '\'' +
-                ", plan_description='" + plan_description + '\'' +
-                ", price=" + price +
-                ", duration='" + duration + '\'' +
-                '}';
-    }
 }

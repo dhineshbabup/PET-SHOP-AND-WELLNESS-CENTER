@@ -1,47 +1,63 @@
 package controller;
 import java.util.Scanner;
+
 import model.Pet;
 import model.PetCarePlans;
 
 public class Admin {
     static Scanner sc = new Scanner(System.in);
+    public void adminChoice(int choice) {
+        switch(choice) {
+            case 1:
+                Resource.admin.addPets();
+                break;
+            case 2:
+                Resource.display.displayPets();
+                break;
+            case 3:
+                Resource.display.displayPayments();
+                break;
+            case 4:
+                Resource.display.petSellingRecords();
+                break;
+            case 5:
+                Resource.display.petCareRecords();
+                break;
+            case 6:
+                Resource.admin.addPlan();
+                break;
+            case 7:
+                Resource.admin.updateStock();
+                break;
+            case 8:
+                return;
+            default:
+                System.out.println("Invalid choice...\n \n");
+                return;
+        }
+    }
     public void addPets() {
-        Pet newPet = new Pet();
-        System.out.print("Enter pet name: ");
-        newPet.setPet_name(sc.nextLine());
-        System.out.print("Enter breed: ");
-        newPet.setBreed(sc.nextLine());
-        System.out.print("Enter colour: ");
-        newPet.setColour(sc.nextLine());
-        System.out.print("Enter gender: ");
-        newPet.setGender(sc.nextLine());
-        System.out.print("Enter pet category: ");
-        newPet.setCategory(sc.nextLine());
-        System.out.print("Enter price: ");
-        newPet.setPrice(sc.nextFloat());
-        System.out.print("Enter weight: ");
-        newPet.setWeight(sc.nextFloat());
+        String name = Resource.view.getUserInput("Enter pet name: ");
+        String breed = Resource.view.getUserInput("Enter breed: ");
+        String colour = Resource.view.getUserInput("Enter colour: ");
+        String gender = Resource.view.getUserInput("Enter gender: ");
+        String category = Resource.view.getUserInput("Enter pet category: ");
+        float price = Float.parseFloat(Resource.view.getUserInput("Enter price: "));
+        float weight = Float.parseFloat(Resource.view.getUserInput("Enter weight: "));
+        Pet newPet = new Pet(name, breed, colour, gender, category, weight, price);
         Resource.insertData.addPet(newPet);
     }
-    public void deletePet() {
-        System.out.print("Enter pet id: ");
-        String pet_id = sc.nextLine();
-        System.out.println(pet_id);
-        Resource.delete.deletePet(pet_id);
-    }
     public void addPlan() {
-        PetCarePlans pcp = new PetCarePlans();
-        System.out.print("Enter plan type: ");
-        pcp.setPlan_type(sc.nextLine());
-        System.out.print("Enter pet type: ");
-        pcp.setPet_type(sc.nextLine());
-        System.out.print("Enter plan description: ");
-        pcp.setPlan_description(sc.nextLine());
-        System.out.print("Enter price: ");
-        pcp.setPrice(sc.nextInt());
-        sc.nextLine();
-        System.out.print("Enter duration: ");
-        pcp.setDuration(sc.nextLine());
+        String plan_type = Resource.view.getUserInput("Enter plan type: ");
+        String pet_type = Resource.view.getUserInput("Enter pet type: ");
+        String description = Resource.view.getUserInput("Enter plan description: ");
+        float price = Float.parseFloat(Resource.view.getUserInput("Enter price: "));
+        String duration = Resource.view.getUserInput("Enter duration: ");
+        PetCarePlans pcp = new PetCarePlans(plan_type,pet_type,description, price, duration);
+        System.out.println(pcp.toString());
         Resource.insertData.addPlan(pcp);
+    }
+    public void updateStock() {
+        Resource.update.updatePetStock(Resource.view.getUserInput("Enter pet id: "));
     }
 }

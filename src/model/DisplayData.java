@@ -105,4 +105,21 @@ public class DisplayData extends Connect {
             System.out.println("Error while getting display plans " + e);
         }
     }
+    public void displayPayment(int user_id) {
+        try {
+            PreparedStatement pay = con.prepareStatement("SELECT * FROM PAYMENTS WHERE USER_ID = ?");
+            System.out.printf("%-20s %-20s %-20s %-20s %-20s %-20s\n", 
+"PAYMENT_ID", "TIME", "PAYMENT_STATUS", "TOTAL_AMOUNT", "PAYMENT_CATEGORY", "USER_ID");
+            System.out.println("-".repeat(130));
+            pay.setInt(1, user_id);
+            ResultSet rs = pay.executeQuery();
+            while (rs.next()) {
+                System.out.printf("%-20s %-20s %-20s %-20s %-20s %-20s\n", rs.getInt(1), rs.getTimestamp(2).toLocalDateTime(), rs.getString(3) , rs.getInt(4), rs.getString(5), rs.getInt(6));
+            }
+        }
+        catch(Exception e) {
+            System.out.println("Fetch payment error " + e);
+        }
+        
+    }
 }
