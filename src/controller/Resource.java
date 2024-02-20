@@ -18,6 +18,7 @@ public class Resource {
     public static UserView userView;
     public static AdminView adminView;
     public static Viewer view;
+    public static Validate validate;
     public static void init() throws SQLException {
         view = new Viewer();
         display = new DisplayData();
@@ -28,5 +29,6 @@ public class Resource {
         update = new Update();
         userView = new UserView();
         adminView = new AdminView();
+        validate = new Validate();
     }
 }

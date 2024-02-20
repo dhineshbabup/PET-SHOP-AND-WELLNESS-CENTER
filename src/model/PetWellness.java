@@ -3,10 +3,10 @@ package model;
 import java.time.LocalDateTime;
 
 public class PetWellness {
-    public int plan_id;
-    public int user_id;
-    public int payment_id;
-    public LocalDateTime date;
+    private int plan_id;
+    private int user_id;
+    private int payment_id;
+    private LocalDateTime date;
     
     public int getPlan_id() {
         return plan_id;

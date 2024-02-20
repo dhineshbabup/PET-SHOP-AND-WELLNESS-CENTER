@@ -6,7 +6,7 @@ public class PetSell {
     public int user_id;
     public String pet_id;
     public int payment_id;
-    public LocalDateTime date;
+    private LocalDateTime date;
 
     public int getUser_id() {
         return user_id;

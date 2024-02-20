@@ -7,10 +7,10 @@ public class UserControl {
     static Scanner sc = new Scanner(System.in);
     public void availablePets(int user_id) {
         Resource.display.displayPets();
-        int petchoice = Integer.parseInt(Resource.view.getUserInput("Do you want to buy? \n1.Yes  \n2.No "));
+        int petchoice = Integer.parseInt(Resource.view.getUserInput("Do you want to buy? \n1.Yes  \n2.No \n"));
         if(petchoice == 1) {
             String pet_id = Resource.view.getUserInput("Enter pet id: ").toUpperCase();
-            if(Validate.checkPet(pet_id)) {
+            if(Resource.validate.checkPet(pet_id)) {
                 System.out.println();
                 BuyPets b = new BuyPets();
                 b.buyPets(pet_id, user_id);
@@ -27,7 +27,7 @@ public class UserControl {
     public void availablePlans(int user_id) {
         Resource.display.displayPetPlans();
         int plan_id = Integer.parseInt(Resource.view.getUserInput("What plan do you want: \nEnter plan id: "));
-        if(Validate.checkPlan(plan_id)) {
+        if(Resource.validate.checkPlan(plan_id)) {
             PetCare pc = new PetCare();
             ArrayList<Object> plan = Resource.datas.getPlan(plan_id);
             if(plan.size() > 0)
@@ -40,7 +40,7 @@ public class UserControl {
     public ArrayList<Object> login() {
         String email = Resource.view.getUserInput("Enter email: ");
         String password = Resource.view.getUserInput("Enter password: ");
-        ArrayList<Object> user = Validate.login(email, password);
+        ArrayList<Object> user = Resource.validate.login(email, password);
         if(user.isEmpty()) return new ArrayList<>();
         return user;
     }
@@ -59,7 +59,7 @@ public class UserControl {
             System.out.println("Password mismatch");
             return;
         }
-        String hash = Validate.hashPassword(pass);
+        String hash = Resource.validate.hashPassword(pass);
         String mobile = Resource.view.getUserInput("Enter mobile number: ");
         if(!mobile.matches(mobileRegex)) {
             System.out.println("Invalid mobile number");

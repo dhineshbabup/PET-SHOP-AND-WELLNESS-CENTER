@@ -107,7 +107,6 @@ public class InsertData extends Connect {
             petCareRecords.setObject(4, pw.getDate());
             petCareRecords.setObject(5, pw.getReturnDate());
             petCareRecords.executeUpdate();
-            System.out.println("PetCare records updated");
 
         }
         catch(Exception e) {
@@ -122,7 +121,7 @@ public class InsertData extends Connect {
             plans.setFloat(4, pcp.getPrice());
             plans.setString(5, pcp.getDuration());
             plans.executeUpdate();
-            System.out.println("Plan added...\n\n");
+            System.out.println("Plan added...\n");
         }
         catch(Exception e) {
             System.out.println("Error while adding plans " + e);

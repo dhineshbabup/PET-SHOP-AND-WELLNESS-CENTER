@@ -3,11 +3,11 @@ package model;
 import java.time.LocalDateTime;
 
 public class Payment {
-    public LocalDateTime currentTime;
-    public String paymentCategory;
-    public String payment_status;
-    public double total_amount;
-    public int user_id;
+    private LocalDateTime currentTime;
+    private String paymentCategory;
+    private String payment_status;
+    private double total_amount;
+    private int user_id;
 
 
     public int getUser_id() {

@@ -66,7 +66,6 @@ public class DisplayData extends Connect {
     }
     public double displayPet(String pet_id) {
         try {
-            System.out.println(pet_id);
             PreparedStatement p = con.prepareStatement("SELECT * FROM PET_DETAILS WHERE PET_ID = ?");
             p.setString(1, pet_id);
             ResultSet rs = p.executeQuery();
@@ -110,7 +109,7 @@ public class DisplayData extends Connect {
             PreparedStatement pay = con.prepareStatement("SELECT * FROM PAYMENTS WHERE USER_ID = ?");
             System.out.printf("%-20s %-20s %-20s %-20s %-20s %-20s\n", 
 "PAYMENT_ID", "TIME", "PAYMENT_STATUS", "TOTAL_AMOUNT", "PAYMENT_CATEGORY", "USER_ID");
-            System.out.println("-".repeat(130));
+            System.out.println("-".repeat(120));
             pay.setInt(1, user_id);
             ResultSet rs = pay.executeQuery();
             while (rs.next()) {
@@ -120,6 +119,6 @@ public class DisplayData extends Connect {
         catch(Exception e) {
             System.out.println("Fetch payment error " + e);
         }
-        
     }
+    
 }
